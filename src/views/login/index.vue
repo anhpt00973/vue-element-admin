@@ -3,12 +3,14 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
+        <!-- title: login -->
         <h3 class="title">
           {{ $t('login.title') }}
         </h3>
+        <!-- language -->
         <lang-select class="set-language" />
       </div>
-
+      <!-- username -->
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -23,7 +25,7 @@
           autocomplete="on"
         />
       </el-form-item>
-
+      <!-- password  -->
       <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
         <el-form-item prop="password">
           <span class="svg-container">
@@ -47,11 +49,11 @@
           </span>
         </el-form-item>
       </el-tooltip>
-
+      <!-- login btn -->
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
         {{ $t('login.logIn') }}
       </el-button>
-
+      <!-- admin, editor account text & btn social -->
       <div style="position:relative">
         <div class="tips">
           <span>{{ $t('login.username') }} : admin</span>
@@ -68,8 +70,9 @@
           {{ $t('login.thirdparty') }}
         </el-button>
       </div>
-    </el-form>
 
+    </el-form>
+    <!-- social dialog -->
     <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
       {{ $t('login.thirdpartyTips') }}
       <br>
